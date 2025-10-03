@@ -1,11 +1,6 @@
 from crewai import Agent, LLM
 from crew.tools.tools_trends import web_search
 
-model = LLM(
-    model='ollama/llama3.2:1b',
-    base_url='http://localhost:11434'
-)
-
 research = Agent(
     role="Pesquisador",
     goal="Localizar na internet informações confiáveis e relevantes sobre um tema específico.",
@@ -14,10 +9,11 @@ research = Agent(
         "Seu trabalho é buscar, reunir e organizar o máximo de conteúdo confiável disponível online "
         "sobre o tema solicitado, garantindo precisão, clareza e relevância."
     ),
-    llm=model,
+    llm='gpt-4o-mini',
     tools=[web_search],
-    function_calling_llm=model,
-    max_iter=5
+    function_calling_llm='gpt-4o-mini',
+    max_iter=5,
+    verbose=True
 )
 
 review = Agent(
@@ -29,7 +25,8 @@ review = Agent(
         "destacar os pontos mais relevantes e assegurar que as informações sejam apresentadas de forma clara e objetiva."
     ),
     max_iter=5,
-    llm=model
+    llm='gpt-4o-mini',
+    verbose=True
 )
 
 trends = Agent(
@@ -41,6 +38,7 @@ trends = Agent(
         "para orientar decisões baseadas no tema."
     ),
     max_inter=3,
-    llm=model
+    llm='gpt-4o-mini',
+    verbose=True
 )
 
