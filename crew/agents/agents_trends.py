@@ -1,4 +1,5 @@
 from crewai import Agent, LLM
+from tools.tools_trends import web_search
 
 model = LLM(
     model='ollama/llama3.2:1b',
@@ -14,6 +15,7 @@ research = Agent(
         "sobre o tema solicitado, garantindo precisão, clareza e relevância."
     ),
     llm=model,
+    tools=[web_search],
     function_calling_llm=model,
     max_iter=5
 )
@@ -26,6 +28,7 @@ review = Agent(
         "Seu trabalho é avaliar o material reunido pelo Pesquisador, corrigir possíveis falhas, "
         "destacar os pontos mais relevantes e assegurar que as informações sejam apresentadas de forma clara e objetiva."
     ),
+    max_iter=5,
     llm=model
 )
 
@@ -37,6 +40,7 @@ trends = Agent(
         "Seu trabalho é interpretar o conteúdo revisado, extrair insights práticos e propor aplicações ou reflexões úteis "
         "para orientar decisões baseadas no tema."
     ),
+    max_inter=3,
     llm=model
 )
 
