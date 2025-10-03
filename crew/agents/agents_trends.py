@@ -1,4 +1,4 @@
-from crewai import Agent, LLM
+from crewai import Agent
 from crew.tools.tools_trends import web_search
 
 model_search = 'gpt-4o-mini'
