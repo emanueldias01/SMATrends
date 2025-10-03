@@ -1,5 +1,5 @@
 from crew.agents.agents_trends import *
-from tasks.task_trends import *
+from crew.tasks.task_trends import *
 from crewai import Crew
 
 crew = Crew(

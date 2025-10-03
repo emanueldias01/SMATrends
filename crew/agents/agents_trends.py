@@ -1,5 +1,5 @@
 from crewai import Agent, LLM
-from tools.tools_trends import web_search
+from crew.tools.tools_trends import web_search
 
 model = LLM(
     model='ollama/llama3.2:1b',
