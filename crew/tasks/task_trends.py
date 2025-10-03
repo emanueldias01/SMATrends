@@ -5,14 +5,12 @@ task_research = Task(
     description="Busque e organize todas as informações relevantes e confiáveis disponíveis na internet sobre {tema}.",
     agent=research,
     expected_output="Um relatório detalhado com todas as informações coletadas sobre {tema}.",
-    output_file="search.md"
 )
 
 task_review = Task(
     description="Revise, corrija e refine o conteúdo produzido pelo Pesquisador sobre {tema}, destacando os pontos mais importantes.",
     agent=review,
     expected_output="Um artigo claro, coeso e revisado, com os principais pontos sobre {tema}.",
-    output_file="review.md"
 )
 
 task_trends = Task(
